@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corner Estudios</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
 *{
     margin:0;
@@ -16,12 +16,11 @@
 
 body{
     background:#0f172a;
-    color:#e2e8f0;
+    color:#cbd5e1; 
     scroll-behavior:smooth;
 }
 
 /* HEADER */
-
 header{
     display:flex;
     justify-content:space-between;
@@ -40,7 +39,7 @@ header h1{
 }
 
 nav a{
-    color:#cbd5e1;
+    color:#94a3b8;
     text-decoration:none;
     margin-left:20px;
     transition:0.3s;
@@ -51,7 +50,6 @@ nav a:hover{
 }
 
 /* HERO */
-
 .hero{
     height:100vh;
     display:flex;
@@ -73,12 +71,11 @@ nav a:hover{
     font-size:18px;
     max-width:600px;
     margin-bottom:30px;
-    color:#94a3b8;
-    animation:fadeUp 1.2s ease forwards;
+    color:#9ca3af; 
 }
 
 .btn{
-    background:#38bdf8;
+    background:#60a5fa;
     color:#0f172a;
     padding:12px 30px;
     border-radius:30px;
@@ -89,12 +86,11 @@ nav a:hover{
 }
 
 .btn:hover{
-    background:#0ea5e9;
+    background:#3b82f6;
     box-shadow:0 0 20px rgba(56,189,248,0.6);
 }
 
 /* SECTIONS */
-
 section{
     padding:100px 10%;
     text-align:center;
@@ -107,7 +103,6 @@ section h2{
 }
 
 /* SERVICES */
-
 .services{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -138,14 +133,12 @@ section h2{
 }
 
 /* ABOUT */
-
 .about{
     background:#1e293b;
     border-radius:20px;
 }
 
 /* CONTACT */
-
 .contact form{
     max-width:600px;
     margin:auto;
@@ -159,8 +152,8 @@ section h2{
     padding:12px;
     border-radius:8px;
     border:none;
-    background:#1e293b;
-    color:#e2e8f0;
+    background:#1f2937;
+    color:#cbd5e1;
 }
 
 .contact input:focus,
@@ -176,7 +169,6 @@ footer{
 }
 
 /* ANIMATIONS */
-
 @keyframes fadeDown{
     from{opacity:0; transform:translateY(-40px);}
     to{opacity:1; transform:translateY(0);}
@@ -194,7 +186,7 @@ footer{
 }
 </style>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 light:bg-white light:text-gray-900"></body>>
 
 <header>
     <h1>CORNER ESTUDIOS</h1>
@@ -202,6 +194,7 @@ footer{
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
+        <button id="theme-toggle" class="btn ml-4">Modo Claro</button>
     </nav>
 </header>
 
@@ -229,6 +222,20 @@ footer{
     </div>
 </section>
 
+<!-- TASKFLOW / GESTOR DE TAREAS -->
+<section id="tareas">
+    <h2>Gestor de tareas</h2>
+
+    <form id="task-form">
+        <input type="text" id="task-input" placeholder="Escribe una tarea..." required>
+        <button type="submit" class="btn">Añadir tarea</button>
+    </form>
+
+    <input type="text" id="search-input" placeholder="Buscar tarea...">
+
+    <ul id="task-list"></ul>
+</section>
+
 <section class="contact" id="contacto">
     <h2>Contacto</h2>
     <form>
@@ -239,10 +246,9 @@ footer{
     </form>
 </section>
 
+<!-- SCRIPT ANIMACION CARDS -->
 <script>
-/* Animación al hacer scroll */
 const cards = document.querySelectorAll('.card');
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -251,11 +257,11 @@ const observer = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.2 });
 
-cards.forEach(card => {
-    observer.observe(card);
-});
+cards.forEach(card => observer.observe(card));
 </script>
 
-</body>
+<!-- SCRIPT DE TASKFLOW -->
+<script src="app.js"></script>
 
+</body>
 </html>
