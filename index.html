@@ -3,264 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Corner Estudios</title>
+<link rel="stylesheet" href="styles.css">
+<title>TaskFlow</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
-
-body{
-    background:#0f172a;
-    color:#cbd5e1; 
-    scroll-behavior:smooth;
-}
-
-/* HEADER */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 10%;
-    background:rgba(15,23,42,0.95);
-    position:fixed;
-    width:100%;
-    top:0;
-    backdrop-filter:blur(10px);
-    z-index:1000;
-}
-
-header h1{
-    color:#38bdf8;
-}
-
-nav a{
-    color:#94a3b8;
-    text-decoration:none;
-    margin-left:20px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-}
-
-.hero h2{
-    font-size:48px;
-    margin-bottom:20px;
-    animation:fadeDown 1s ease forwards;
-}
-
-.hero p{
-    font-size:18px;
-    max-width:600px;
-    margin-bottom:30px;
-    color:#9ca3af; 
-}
-
-.btn{
-    background:#60a5fa;
-    color:#0f172a;
-    padding:12px 30px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-    animation:fadeUp 1.5s ease forwards;
-}
-
-.btn:hover{
-    background:#3b82f6;
-    box-shadow:0 0 20px rgba(56,189,248,0.6);
-}
-
-/* SECTIONS */
-section{
-    padding:100px 10%;
-    text-align:center;
-}
-
-section h2{
-    margin-bottom:50px;
-    font-size:32px;
-    color:#38bdf8;
-}
-
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:#1e293b;
-    padding:30px;
-    border-radius:15px;
-    transition:0.4s;
-    opacity:0;
-    transform:translateY(40px);
-}
-
-.card.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 25px rgba(56,189,248,0.2);
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-/* ABOUT */
-.about{
-    background:#1e293b;
-    border-radius:20px;
-}
-
-/* CONTACT */
-.contact form{
-    max-width:600px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.contact input,
-.contact textarea{
-    padding:12px;
-    border-radius:8px;
-    border:none;
-    background:#1f2937;
-    color:#cbd5e1;
-}
-
-.contact input:focus,
-.contact textarea:focus{
-    outline:2px solid #38bdf8;
-}
-
-footer{
-    background:#0f172a;
-    padding:20px;
-    text-align:center;
-    border-top:1px solid #1e293b;
-}
-
-/* ANIMATIONS */
-@keyframes fadeDown{
-    from{opacity:0; transform:translateY(-40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-@media(max-width:768px){
-    .hero h2{
-        font-size:32px;
-    }
-}
-</style>
 </head>
-<body class="bg-gray-900 text-gray-100 light:bg-white light:text-gray-900"></body>>
+
+<body>
 
 <header>
-    <h1>CORNER ESTUDIOS</h1>
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-        <button id="theme-toggle" class="btn ml-4">Modo Claro</button>
-    </nav>
+  <h1>TASKFLOW</h1>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Funciones</a>
+    <a href="#tareas">Tareas</a>
+    <button id="theme-toggle" class="btn-toggle">Modo Claro</button>
+  </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
-    <h2>Consultoría informática para ayudarte en tu negocio</h2>
-    <p>En Corner Estudios ofrecemos apoyo informático y soluciones innovadoras para todo tipo de empresa, especializándonos en la preparación de las empresas para un futuro en el que la funcionalidad digital es esencial.</p>
-    <a href="#contacto" class="btn">Solicitar Consultoría</a>
+  <div class="hero-content">
+    <h2>Organiza tu día de forma simple y eficiente</h2>
+    <p>TaskFlow te permite gestionar tus tareas de manera clara, rápida y sin distracciones. Añade, busca y controla todo tu trabajo desde un solo lugar.</p>
+    <a href="#tareas" class="btn">Empezar ahora</a>
+  </div>
 </section>
 
+<!-- FEATURES -->
 <section id="servicios">
-    <h2>Nuestros Servicios</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Servicios de desarrollo de software</h3>
-            <p>Ayudamos a adaptar a las empresas a un entorno digital, ofreciendo servicios como el desarrollo de aplicaciones web y móviles.</p>
-        </div>
-        <div class="card">
-            <h3>trasformación digital</h3>
-            <p>Ayudamos a las empresas a digitalizarse y automatizarse con tecnologías modernas para optimizar la productividad y minimizar los gastos.</p>
-        </div>
-        <div class="card">
-            <h3>Consultoría tecnologica</h3>
-            <p>Te ayudamos a tomar decisiones importantes sobre qué tipo de tecnologías son las más viables para tu empresa y las implementamos como corresponda</p>
-        </div>
+  <h2>Funciones</h2>
+  <div class="services">
+    <div class="card">
+      <span class="card-icon">✅</span>
+      <h3>Gestión de tareas</h3>
+      <p>Crea, organiza y elimina tareas fácilmente para mantener el control de tu día.</p>
     </div>
+    <div class="card">
+      <span class="card-icon">🔍</span>
+      <h3>Búsqueda rápida</h3>
+      <p>Encuentra cualquier tarea al instante usando el buscador integrado.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💾</span>
+      <h3>Guardado automático</h3>
+      <p>Tus tareas se guardan automáticamente para que nunca pierdas tu progreso.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏷️</span>
+      <h3>Prioridades y categorías</h3>
+      <p>Clasifica tus tareas por prioridad y categoría para organizarte mejor.</p>
+    </div>
+  </div>
 </section>
 
-<!-- TASKFLOW / GESTOR DE TAREAS -->
-<section id="tareas">
-    <h2>Gestor de tareas</h2>
+<!-- APP -->
+<section id="tareas" class="app-section">
 
-    <form id="task-form">
-        <input type="text" id="task-input" placeholder="Escribe una tarea..." required>
-        <button type="submit" class="btn">Añadir tarea</button>
-    </form>
+  <div class="app-container">
 
-    <input type="text" id="search-input" placeholder="Buscar tarea...">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <h3>Categorías</h3>
+      <ul>
+        <li onclick="filterCategory('all')" class="active-cat">📋 Todas</li>
+        <li onclick="filterCategory('trabajo')">💼 Trabajo</li>
+        <li onclick="filterCategory('personal')">👤 Personal</li>
+        <li onclick="filterCategory('estudio')">📚 Estudio</li>
+      </ul>
 
-    <ul id="task-list"></ul>
+      <h3>Filtrar por estado</h3>
+      <ul>
+        <li onclick="filterTasks('all')">Todas</li>
+        <li onclick="filterTasks('active')">Pendientes</li>
+        <li onclick="filterTasks('completed')">Completadas</li>
+      </ul>
+
+      <h3>Ordenar</h3>
+      <ul>
+        <li onclick="sortByPriority()">⬆ Por prioridad</li>
+        <li onclick="sortByDate()">📅 Por fecha</li>
+      </ul>
+
+      <h3>Acciones</h3>
+      <button class="sidebar-btn" onclick="completeAll()">✔ Completar todas</button>
+      <button class="sidebar-btn danger" onclick="deleteCompleted()">🗑 Eliminar completadas</button>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <button id="menu-toggle">☰ Menú</button>
+
+      <h2 class="section-title">Gestor de tareas</h2>
+
+      <p id="task-counter" class="task-counter">Pendientes: 0 | Completadas: 0</p>
+
+      <!-- FORM -->
+      <form id="task-form">
+        <div class="task-input-container">
+          <input type="text" id="task-input" placeholder="¿Qué tienes que hacer?" required>
+          <input type="datetime-local" id="task-date">
+          <select id="task-priority">
+            <option value="low">🟢 Baja</option>
+            <option value="medium" selected>🟡 Media</option>
+            <option value="high">🔴 Alta</option>
+          </select>
+          <select id="task-category">
+            <option value="trabajo">💼 Trabajo</option>
+            <option value="personal">👤 Personal</option>
+            <option value="estudio">📚 Estudio</option>
+          </select>
+          <button type="submit" class="btn">Añadir tarea</button>
+        </div>
+      </form>
+
+      <!-- SEARCH -->
+      <input type="text" id="search-input" placeholder="🔍 Buscar tarea...">
+
+      <!-- EMPTY STATE -->
+      <p id="empty-message" class="empty-message">No hay tareas aún. ¡Añade una para empezar!</p>
+
+      <ul id="task-list"></ul>
+
+    </div>
+  </div>
 </section>
 
-<section class="contact" id="contacto">
-    <h2>Contacto</h2>
-    <form>
-        <input type="text" placeholder="Nombre completo" required>
-        <input type="email" placeholder="Correo electrónico" required>
-        <textarea rows="5" placeholder="Escribe tu mensaje" required></textarea>
-        <button type="submit" class="btn">Enviar mensaje</button>
-    </form>
-</section>
+<footer>
+  <p>© 2025 TaskFlow — Hecho con ❤️</p>
+</footer>
 
-<!-- SCRIPT ANIMACION CARDS -->
 <script>
 const cards = document.querySelectorAll('.card');
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-}, { threshold: 0.2 });
-
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+}, { threshold: 0.15 });
 cards.forEach(card => observer.observe(card));
 </script>
 
-<!-- SCRIPT DE TASKFLOW -->
 <script src="app.js"></script>
 
 </body>
