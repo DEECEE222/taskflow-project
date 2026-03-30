@@ -30,7 +30,6 @@ body {
   line-height: 1.6;
 }
 
-/* ── LIGHT THEME ─────────────────────────────────────── */
 body.light {
   --bg: #f6f8fa;
   --bg-surface: #ffffff;
@@ -43,7 +42,6 @@ body.light {
   --shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* ── HEADER ──────────────────────────────────────────── */
 header {
   display: flex;
   justify-content: space-between;
@@ -105,7 +103,6 @@ nav a:hover { color: var(--accent); }
   color: var(--accent);
 }
 
-/* ── HERO ────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
