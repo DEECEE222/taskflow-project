@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    /* CONFIGURACIÓN BÁSICA */
+    "target": "es2016",
+    "module": "commonjs",
+
+    /* CARPETAS */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* MODO ESTRICTO */
+    "strict": true,
+
+    /* COMPATIBILIDAD */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* CALIDAD */
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
