@@ -45,44 +45,58 @@ function createTasksStore({ storageKey, onSync }) {
     onSync(tasks);
   }
 
-  function load() {
+  async function load() {
+  try {
+    tasks = await fetchTasks();
+    persist();
+  } catch {
     const saved = localStorage.getItem(storageKey);
-    if (!saved) {
-      tasks = [];
-      onSync(tasks);
-      return tasks;
-    }
-
     try {
       tasks = JSON.parse(saved) || [];
     } catch {
       tasks = [];
     }
-
-    onSync(tasks);
-    return tasks;
   }
+  onSync(tasks);
+  return tasks;
+}
 
   function getAll() {
     return tasks;
   }
 
-  function add(task) {
+  async function add(task) {
+  try {
+    const savedTask = await createTask({
+      text: task.text,
+      category: task.category,
+      priority: task.priority,
+      reminder: task.reminder || undefined,
+    });
+    tasks.push(savedTask);
+  } catch {
     tasks.push(task);
-    persistAndSync();
   }
+  persistAndSync();
+}
 
-  function deleteTask(id) {
-    tasks = tasks.filter((task) => task.id !== id);
-    persistAndSync();
-  }
+  async function deleteTask(id) {
+  try {
+    await deleteTask(id);
+  } catch {}
+  tasks = tasks.filter((task) => task.id !== id);
+  persistAndSync();
+}
 
-  function setCompleted(id, completed) {
+  async function setCompleted(id, completed) {
+  try {
+    await toggleTask(id);
+  } catch {
     const task = tasks.find((t) => t.id === id);
-    if (!task) return;
-    task.completed = completed;
-    persistAndSync();
+    if (task) task.completed = completed;
   }
+  persistAndSync();
+}
 
   function completeAll() {
     tasks.forEach((t) => (t.completed = true));
@@ -301,8 +315,8 @@ function setupEvents() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  tasksStore.load();
+document.addEventListener("DOMContentLoaded", async () => {
+  await tasksStore.load();
   renderTasks();
 });
 
