@@ -98,29 +98,34 @@
 
       <p id="task-counter" class="task-counter">Pendientes: 0 | Completadas: 0</p>
 
-      <!-- FORM -->
       <form id="task-form">
         <div class="task-input-container">
-          <input type="text" id="task-input" placeholder="¿Qué tienes que hacer?" required>
-          <input type="datetime-local" id="task-date">
-          <select id="task-priority">
-            <option value="low">🟢 Baja</option>
-            <option value="medium" selected>🟡 Media</option>
-            <option value="high">🔴 Alta</option>
-          </select>
-          <select id="task-category">
-            <option value="trabajo">💼 Trabajo</option>
-            <option value="personal">👤 Personal</option>
-            <option value="estudio">📚 Estudio</option>
-          </select>
-          <button type="submit" class="btn">Añadir tarea</button>
-        </div>
+         <label for="task-input">Tarea</label>
+         <input type="text" id="task-input" placeholder="¿Qué tienes que hacer?" required>
+         
+         <label for="task-date">Recordatorio</label>
+         <input type="datetime-local" id="task-date">
+
+         <label for="task-priority">Prioridad</label>
+         <select id="task-priority">
+          <option value="low">🟢 Baja</option>
+          <option value="medium" selected>🟡 Media</option>
+          <option value="high">🔴 Alta</option>
+         </select>
+
+         <label for="task-category">Categoría</label>
+         <select id="task-category">
+          <option value="trabajo">💼 Trabajo</option>
+          <option value="personal">👤 Personal</option>
+          <option value="estudio">📚 Estudio</option>
+         </select>
+
+         <button type="submit" class="btn">Añadir tarea</button>
+       </div>
       </form>
 
-      <!-- SEARCH -->
       <input type="text" id="search-input" placeholder="🔍 Buscar tarea...">
 
-      <!-- EMPTY STATE -->
       <p id="empty-message" class="empty-message">No hay tareas aún. ¡Añade una para empezar!</p>
 
       <ul id="task-list"></ul>
